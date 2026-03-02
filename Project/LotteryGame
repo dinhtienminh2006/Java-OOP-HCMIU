@@ -1,1 +1,90 @@
-
+import java.util.Scanner;
+public class LotteryGame {
+    public static void main(String[] args) {
+        
+        int maxNum = 49;
+        int minNum = 1;
+        int countMatchNumber = 0;
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Enter your money you have now: ");
+        double yourMoney = input.nextDouble();
+        input.nextLine();
+    
+        System.out.print("Do you want to choose your own ticket or random (yes/no): ");
+        String userInput = input.nextLine();
+        if (userInput.equals("Yes")){
+            System.out.println("Please choose your own ticket: ");
+            int num1 = input.nextInt();
+            int num2 = input.nextInt();
+            int num3 = input.nextInt();
+            int num4 = input.nextInt();
+            int num5 = input.nextInt();
+            int num6 = input.nextInt();
+            
+            System.out.println("The ticket you choose is: " + num1 +  " " + num2 + " " + num3 +  " " + num4 + " " + num5 + " " + num6);
+            int [] winningTicket = new int[6];
+            for (int i = 0; i<6; i++){
+            winningTicket[i] = (int)(Math.random() * ((maxNum - minNum) + 1) + minNum);
+            System.out.println("The winning ticket is: " + winningTicket[i]);
+        }
+            if (num1 == winningTicket[0]){
+                countMatchNumber +=1;
+            }
+            if ((num2) == winningTicket[1]){
+                countMatchNumber +=1;
+            }
+            if (num3 == winningTicket[2]){
+                countMatchNumber += 1;
+            }
+            if (num4 == winningTicket[3]){
+                countMatchNumber +=1;
+            }
+            if (num5 == winningTicket[4]){
+                countMatchNumber +=1;
+            }
+            if (num6 == winningTicket[5]){
+                countMatchNumber +=1;
+            }
+        }else{
+            System.out.println("Here is your randomly generated ticket: ");
+            int [] userTicket = new int[6];
+            int [] winningTicket = new int[6];
+            for (int i = 0; i<6; i++){
+                userTicket[i] = (int)(Math.random() * ((maxNum - minNum) + 1) + minNum);
+                System.out.println("Your ticket is: " + userTicket[i]);
+                winningTicket[i] = (int)(Math.random() * ((maxNum - minNum) + 1) + minNum);
+                System.out.println("The winning ticket is: " + winningTicket[i]);
+                if (userTicket[i] == winningTicket[i]){
+                    countMatchNumber += 1;
+                    System.out.println("Congrat, you matched");
+            }
+               }
+            }    
+        if (countMatchNumber == 1 || countMatchNumber == 2){
+            System.out.println("You have matched: " + countMatchNumber);
+            yourMoney += 10;
+        }
+        else if (countMatchNumber == 3){
+            System.out.println("You have matched: " + countMatchNumber);
+            yourMoney += 100;
+        }
+        else if (countMatchNumber == 4){
+            System.out.println("You have matched: " + countMatchNumber);
+            yourMoney += 1000;
+        }
+        else if (countMatchNumber == 5){
+            System.out.println("You have matched: " + countMatchNumber);
+            yourMoney += 5000;
+        }
+        else if (countMatchNumber == 6){
+            System.out.println("You have matched: " + countMatchNumber);
+            yourMoney += 5000000;
+        }
+        else{
+            System.out.println("You have matched: " + countMatchNumber);
+            System.out.println("Your money not change: "  + yourMoney);
+        }
+        System.out.println("Your money now: " + yourMoney);
+    }
+}
