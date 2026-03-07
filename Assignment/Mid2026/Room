@@ -1,1 +1,34 @@
+import java.util.ArrayList;
 
+public class Room {
+    private final int roomNumber;
+    protected double baseNightlyRate;
+    private static int totalRoom = 0;       //static for global variable
+    private static ArrayList<Integer> exisitingRooms = new ArrayList<>();
+
+    public Room(int roomNumber, double baseNightlyRate){
+        if (roomNumber <= 0 || baseNightlyRate <= 0){
+            throw new IllegalArgumentException("Please enter positive number");
+        }
+
+        if (exisitingRooms.contains(roomNumber)){
+            throw new IllegalArgumentException("Room number " + roomNumber + "existed");
+        }
+
+        this.roomNumber = roomNumber;
+        this.baseNightlyRate = baseNightlyRate;
+
+        exisitingRooms.add(roomNumber);
+        totalRoom++;
+    }
+    public double baseNightlyCalculate(){
+        return baseNightlyRate;
+    }
+    public static int getTotalRoom(){
+        return totalRoom;
+    }
+
+    public void displayInformation(){
+        System.out.println("Room number: " + roomNumber + "Base nightly rate: " +  baseNightlyRate + "Final cost is: " + baseNightlyCalculate());
+    }
+}
