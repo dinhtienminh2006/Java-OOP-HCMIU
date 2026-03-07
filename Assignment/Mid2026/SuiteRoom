@@ -1,0 +1,17 @@
+public class SuiteRoom extends Room {
+    private final double suitRoomFee = 75.0;
+
+    public SuiteRoom(int roomNumber, double baseNightlyRate){
+        super(roomNumber, baseNightlyRate);
+    }
+
+    @Override
+    public double baseNightlyCalculate(){
+        return baseNightlyRate + suitRoomFee;
+    }
+    @Override
+    public void displayInformation(){
+        super.displayInformation();
+        System.out.println("Suit room cost is: " + suitRoomFee);
+    }
+}
