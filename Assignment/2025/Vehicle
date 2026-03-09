@@ -1,1 +1,44 @@
+public class Vehicles {
+    private final String nameBrand;
+    private final int size;
+    private int speed;
+    private String color;
+
+    public Vehicles(String nameBrand, int size, int speed, String color) {
+        this.nameBrand = nameBrand;
+        this.size = size;
+        this.speed = speed;
+        this.color = color;
+    }
+
+    public String getNameBrand() {
+        return nameBrand;
+    }
+    public int getSize() {
+        return size;
+    }
+    public int getSpeed() {
+        return speed;
+    }
+    public void setSpeed(int speed) {
+        if (speed == 1 || speed == 2 || speed == 4){
+            this.speed = speed;
+        }else{
+            System.out.println("Error: Speed must be 1, 2, or 4 blocks per turn.");
+        }
+
+    }
+    public String getColor() {
+        return color;
+    }
+    public void setColor(String color) {
+        this.color = color;
+    }
+    //public void displaySpeeding(){
+        //System.out.println("The vehicle is moving at:" + getSpeed());
+    //}
+    public void showType(){
+        System.out.println("This is a: ");
+    }
+}
 
