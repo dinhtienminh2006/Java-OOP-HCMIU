@@ -1,0 +1,15 @@
+public class Car extends Vehicles{
+    public Car(String nameBrand, int size, int speed, String color){
+        super(nameBrand, size, speed, color);
+    }
+    private static int checkSize(int size) {
+        if (size != 4) {
+            System.out.println("The fixed size for car is 4:)");
+            return 4;
+        }
+        return size;
+    }
+    public void showType(){
+        System.out.println("Vehicle Type: Car");
+    }
+}
