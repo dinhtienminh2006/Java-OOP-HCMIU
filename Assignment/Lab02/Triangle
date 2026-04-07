@@ -1,1 +1,33 @@
+public class Triangle {
+    private int length_side1;
+    private int length_side2;
+    private int length_side3;
 
+    public Triangle(int length_side1, int length_side2, int length_side3) {
+        this.length_side1 = length_side1;
+        this.length_side2 = length_side2;
+        this.length_side3 = length_side3;
+    }
+    public int getLength_side1() {
+        return length_side1;
+    }
+    public int getLength_side2() {
+        return length_side2;
+    }
+    public int getLength_side3() {
+        return length_side3;
+    }
+
+    public String verify(){
+        if (length_side1 == length_side2 && length_side2 == length_side3){
+            return "Equilateral Triangle";
+        } else if (length_side1 == length_side2 || length_side1 == length_side3 || length_side2 == length_side3){
+            return "A Isosceles Triangle";
+        } else if (length_side1 + length_side2 < length_side3 || length_side1 + length_side3 < length_side2 || length_side2 + length_side3 < length_side1){
+            return "A Not Triangle";
+        }else{
+            return "A Scalene Triangle";
+        }
+    }
+
+}
